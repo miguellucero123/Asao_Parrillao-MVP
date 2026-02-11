@@ -1,3 +1,4 @@
+<template>
   <form 
     name="contact-v1" 
     method="POST" 
@@ -14,7 +15,6 @@
     </p>
 
     <div class="row g-3">
-
       <!-- Nombre -->
       <div class="col-md-6">
         <label class="form-label form-label-ap" for="contact-name">Nombre Completo *</label>
