@@ -8,7 +8,12 @@
     "build": "vite build",
     "preview": "vite preview"
   },
-  "keywords": ["asado", "parrilla", "catering", "eventos"],
+  "keywords": [
+    "asado",
+    "parrilla",
+    "catering",
+    "eventos"
+  ],
   "author": "Asao_Parrillao",
   "license": "ISC",
   "description": "Asao_Parrillao - Servicio integral de asados a domicilio y eventos",

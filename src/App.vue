@@ -9,18 +9,21 @@
       </router-view>
     </main>
     <FooterSection />
+    <WhatsAppButton />
   </div>
 </template>
 
 <script>
 import NavBar from './components/NavBar.vue'
 import FooterSection from './components/FooterSection.vue'
+import WhatsAppButton from './components/WhatsAppButton.vue'
 
 export default {
   name: 'App',
   components: {
     NavBar,
-    FooterSection
+    FooterSection,
+    WhatsAppButton
   }
 }
 </script>

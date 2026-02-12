@@ -90,6 +90,39 @@
       </div>
     </section>
 
+    <!-- ======================== INSTAGRAM & MENÚ ======================== -->
+    <section class="section-padding bg-light" id="social-menu-section">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <div class="card-premium p-4 border-0 shadow-sm animate-fade-in-up">
+              <h3 class="mb-3"><i class="bi bi-instagram text-gradient"></i> ¡Síguenos en Vivo!</h3>
+              <p class="text-muted mb-4">
+                Mira nuestros últimos eventos, videos de parrilla y clientes felices en tiempo real.
+                ¡El asado entra por los ojos!
+              </p>
+              <a href="https://instagram.com/asao_parrillao" target="_blank" class="btn btn-outline-dark w-100">
+                Ver Galería en Instagram <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="card-premium p-4 border-0 shadow-sm animate-fade-in-up animate-delay-1" style="background: var(--gradient-dark); color: white;">
+              <h3 class="mb-3 text-white"><i class="bi bi-file-earmark-pdf-fill text-danger"></i> Menú Completo</h3>
+              <p class="text-white-50 mb-4">
+                Descarga nuestra carta con todos los cortes, acompañamientos y bebestibles disponibles.
+                Ideal para revisar con calma.
+              </p>
+              <!-- Enlace a PDF Dummy o Formulario -->
+              <a href="/public/menu.pdf" download="Menu_Asao_Parrillao.pdf" class="btn btn-light text-dark w-100 fw-bold" @click.prevent="$router.push('/contacto?subject=Solicitud de Menú PDF')">
+                Solicitar Menú PDF <i class="bi bi-download"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ======================== SERVICES PREVIEW ======================== -->
     <section class="section-padding section-dark" id="services-preview">
       <div class="container">
