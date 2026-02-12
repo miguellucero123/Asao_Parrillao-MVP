@@ -263,8 +263,8 @@ export default {
           title: 'Técnicas para encender el fuego',
           excerpt: '¿Leña o carbón? Aprende a dominar las brasas.',
           content: '<p>Existen muchas formas, pero la "técnica del volcán" es infalible:</p><ol><li>Forma un anillo de carbón o leña.</li><li>Coloca papel de diario hecho bolas en el centro.</li><li>Rodea el papel con trozos pequeños de carbón.</li><li>Enciende el papel y espera a que el carbón prenda.</li></ol><p><strong>Tip Pro:</strong> Nunca uses acelerantes químicos, ya que alteran el sabor de la carne.</p>',
-          // Imagen de fuego/brasas real
-          image: 'https://images.unsplash.com/photo-1526047932273-341f2a7631f9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+          // Imagen personalizada subida por el usuario
+          image: '/images/tecnicas-fuego.jpg',
           date: '28 Ene, 2026',
           tag: 'Tutorial'
         }
