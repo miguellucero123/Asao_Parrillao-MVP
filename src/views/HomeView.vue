@@ -138,7 +138,7 @@
     </section>
 
     <!-- ======================== BLOG MODAL ======================== -->
-    <div v-if="showModal" class="modal fade show d-block" tabindex="-1" style="background: rgba(0,0,0,0.5);" @click.self="closeModal">
+    <div v-if="showModal" class="modal fade show d-block" tabindex="-1" style="background: rgba(0,0,0,0.5); z-index: 9999;" @click.self="closeModal">
       <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content border-0 shadow-lg">
           <div class="modal-header border-0 pb-0">
@@ -146,7 +146,13 @@
             <button type="button" class="btn-close" @click="closeModal"></button>
           </div>
           <div class="modal-body">
-            <img :src="activePost.image" class="w-100 rounded-3 mb-4" style="height: 300px; object-fit: cover;" :alt="activePost.title">
+            <!-- Imagen en Modal -->
+            <img 
+              :src="activePost.image" 
+              class="w-100 rounded-3 mb-4" 
+              style="height: 300px; object-fit: cover;" 
+              :alt="activePost.title"
+            >
             <div class="blog-content" v-html="activePost.content"></div>
           </div>
           <div class="modal-footer border-0 pt-0">
@@ -239,7 +245,8 @@ export default {
           title: 'El secreto del Chimichurri perfecto',
           excerpt: 'Un buen asado no está completo sin un gran chimichurri. Descubre nuestra receta secreta.',
           content: '<p>El chimichurri es el alma de la parrilla argentina y chilena. Para lograr el equilibrio perfecto, mezcla:</p><ul><li>1 taza de perejil fresco picado</li><li>4 dientes de ajo picados fino</li><li>1 cucharada de orégano seco</li><li>1 cucharadita de ají molido (o merquén)</li><li>1/2 taza de aceite de oliva</li><li>1/4 taza de vinagre de vino tinto</li></ul><p><strong>El secreto:</strong> Deja reposar la mezcla al menos 24 horas antes de servir para que los sabores se integren.</p>',
-          image: 'https://images.unsplash.com/photo-1626202378943-4b57b42c4b4d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+          // Imagen de hierbas y aceites
+          image: 'https://images.unsplash.com/photo-1596797038530-2c107229654b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
           date: '10 Feb, 2026',
           tag: 'Recetas'
         },
@@ -247,7 +254,8 @@ export default {
           title: 'Guía de Cortes: ¿Qué elegir?',
           excerpt: 'Lomo vetado, entraña, punta de ganso... te explicamos las diferencias.',
           content: '<p>Elegir la carne correcta es el 50% del éxito del asado. Aquí nuestros favoritos:</p><ul><li><strong>Lomo Vetado:</strong> Jugoso y sabroso gracias a su grasa infiltrada. Ideal para término medio o tres cuartos.</li><li><strong>Entraña:</strong> Intenso sabor y cocción rápida (vuelta y vuelta). Se sirve jugosa.</li><li><strong>Punta de Ganso:</strong> La capa de grasa exterior le da un sabor único. Cocción lenta para que la grasa se derrita.</li></ul><p>En Asao_Parrillao seleccionamos personalmente cada corte.</p>',
-          image: 'https://images.unsplash.com/photo-1603048297172-c92544798d5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+          // Imagen de carne cruda premium
+          image: 'https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
           date: '05 Feb, 2026',
           tag: 'Tips'
         },
@@ -255,7 +263,8 @@ export default {
           title: 'Técnicas para encender el fuego',
           excerpt: '¿Leña o carbón? Aprende a dominar las brasas.',
           content: '<p>Existen muchas formas, pero la "técnica del volcán" es infalible:</p><ol><li>Forma un anillo de carbón o leña.</li><li>Coloca papel de diario hecho bolas en el centro.</li><li>Rodea el papel con trozos pequeños de carbón.</li><li>Enciende el papel y espera a que el carbón prenda.</li></ol><p><strong>Tip Pro:</strong> Nunca uses acelerantes químicos, ya que alteran el sabor de la carne.</p>',
-          image: 'https://images.unsplash.com/photo-1599351478235-9c864ac7a43f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+          // Imagen de fuego/brasas
+          image: 'https://images.unsplash.com/photo-1496116218417-1a781b1c423c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
           date: '28 Ene, 2026',
           tag: 'Tutorial'
         }
