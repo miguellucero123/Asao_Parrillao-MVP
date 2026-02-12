@@ -117,21 +117,21 @@
       </div>
     </section>
 
-    <!-- ======================== TESTIMONIALS ======================== -->
-    <section class="section-padding" id="testimonials-section">
+    <!-- ======================== BLOG / TIPS ======================== -->
+    <section class="section-padding" id="blog-section">
       <div class="container">
         <div class="text-center mb-5">
           <h2 class="section-title section-title-centered">
-            Lo que dicen nuestros <span class="text-gradient">clientes</span>
+            Tips <span class="text-gradient">Parrilleros</span>
           </h2>
           <p class="section-subtitle mx-auto mt-4">
-            La satisfacción de nuestros clientes es nuestra mejor carta de presentación.
+            Consejos de nuestros expertos para que te conviertas en el rey de la parrilla.
           </p>
         </div>
 
         <div class="row g-4">
-          <div class="col-md-6 col-lg-4" v-for="(testimonial, i) in testimonials" :key="i">
-            <TestimonialCard v-bind="testimonial" :index="i" />
+          <div class="col-md-6 col-lg-4" v-for="(post, i) in blogPosts" :key="i">
+            <BlogCard v-bind="post" />
           </div>
         </div>
       </div>
@@ -155,11 +155,11 @@
 
 <script>
 import ServiceCard from '../components/ServiceCard.vue'
-import TestimonialCard from '../components/TestimonialCard.vue'
+import BlogCard from '../components/BlogCard.vue'
 
 export default {
   name: 'HomeView',
-  components: { ServiceCard, TestimonialCard },
+  components: { ServiceCard, BlogCard },
   data() {
     return {
       heroImage: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=1600&q=80',
@@ -212,24 +212,27 @@ export default {
           ctaLink: '/contacto'
         }
       ],
-      testimonials: [
+      blogPosts: [
         {
-          text: 'Contratamos a Asao_Parrillao para el cumpleaños de mi esposa y fue espectacular. La carne estaba increíble y el servicio impecable. ¡100% recomendados!',
-          author: 'Carlos Mendoza',
-          role: 'Cumpleaños Familiar',
-          stars: 5
+          title: 'El secreto del Chimichurri perfecto',
+          excerpt: 'Un buen asado no está completo sin un gran chimichurri. Descubre nuestra receta secreta con hierbas frescas, especias y el toque justo de vinagre.',
+          image: 'https://images.unsplash.com/photo-1626202378943-4b57b42c4b4d?w=600&q=80',
+          date: '10 Feb, 2026',
+          tag: 'Recetas'
         },
         {
-          text: 'Para nuestro evento corporativo necesitábamos algo diferente y Asao_Parrillao superó todas las expectativas. Profesionales de principio a fin.',
-          author: 'María José Silva',
-          role: 'Evento Corporativo',
-          stars: 5
+          title: 'Guía de Cortes: ¿Qué elegir?',
+          excerpt: 'Lomo vetado, entraña, punta de ganso... te explicamos las diferencias y cuál es el mejor corte para cada tipo de parrilla y ocasión.',
+          image: 'https://images.unsplash.com/photo-1603048297172-c92544798d5e?w=600&q=80',
+          date: '05 Feb, 2026',
+          tag: 'Tips'
         },
         {
-          text: 'El asado temático argentino que nos prepararon fue una experiencia única. Todos mis invitados quedaron encantados. ¡Sin duda volveré a contratarlos!',
-          author: 'Roberto Guzmán',
-          role: 'Reunión de Amigos',
-          stars: 5
+          title: 'Técnicas para encender el fuego',
+          excerpt: '¿Leña o carbón? ¿Volcán o iniciador? Aprende las mejores técnicas para lograr brasas perfectas que duran todo el asado.',
+          image: 'https://images.unsplash.com/photo-1599351478235-9c864ac7a43f?w=600&q=80',
+          date: '28 Ene, 2026',
+          tag: 'Tutorial'
         }
       ]
     }
