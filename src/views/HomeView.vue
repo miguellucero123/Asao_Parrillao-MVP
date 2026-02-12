@@ -131,11 +131,31 @@
 
         <div class="row g-4">
           <div class="col-md-6 col-lg-4" v-for="(post, i) in blogPosts" :key="i">
-            <BlogCard v-bind="post" />
+            <BlogCard v-bind="post" @read-more="openPost(post)" />
           </div>
         </div>
       </div>
     </section>
+
+    <!-- ======================== BLOG MODAL ======================== -->
+    <div v-if="showModal" class="modal fade show d-block" tabindex="-1" style="background: rgba(0,0,0,0.5);" @click.self="closeModal">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content border-0 shadow-lg">
+          <div class="modal-header border-0 pb-0">
+            <h5 class="modal-title fw-bold">{{ activePost.title }}</h5>
+            <button type="button" class="btn-close" @click="closeModal"></button>
+          </div>
+          <div class="modal-body">
+            <img :src="activePost.image" class="w-100 rounded-3 mb-4" style="height: 300px; object-fit: cover;" :alt="activePost.title">
+            <div class="blog-content" v-html="activePost.content"></div>
+          </div>
+          <div class="modal-footer border-0 pt-0">
+            <button type="button" class="btn btn-secondary" @click="closeModal">Cerrar</button>
+            <router-link to="/contacto" class="btn btn-fire" @click="closeModal">¡Quiero un asado!</router-link>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- ======================== CTA BANNER ======================== -->
     <section class="section-padding" id="cta-section">
@@ -162,7 +182,9 @@ export default {
   components: { ServiceCard, BlogCard },
   data() {
     return {
-      heroImage: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=1600&q=80',
+      showModal: false,
+      activePost: {},
+      heroImage: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80',
       features: [
         {
           icon: 'bi-gem',
@@ -185,7 +207,7 @@ export default {
           id: 'basico',
           title: 'Asado Básico',
           description: 'Nosotros ponemos la carne premium y un parrillero experto. Tú pones el lugar y las ganas.',
-          image: 'https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=600&q=80',
+          image: 'https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
           badge: 'Popular',
           includes: ['Selección de cortes premium', 'Parrillero profesional', 'Carbón y leña incluidos'],
           ctaText: 'Solicitar Cotización',
@@ -195,7 +217,7 @@ export default {
           id: 'completo',
           title: 'Asado Completo',
           description: 'Olvídate de todo. Nos encargamos de la comida, bebestibles, implementos y staff.',
-          image: 'https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=80',
+          image: 'https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
           badge: 'Premium',
           includes: ['Cortes premium + acompañamientos', 'Bebestibles y vajilla', 'Servicio de garzones y limpieza'],
           ctaText: 'Solicitar Cotización',
@@ -205,7 +227,7 @@ export default {
           id: 'tematico',
           title: 'Asado Temático',
           description: 'Cuéntanos tu idea y creamos un asado a tu medida. Argentino, Chileno Campestre y más.',
-          image: 'https://images.unsplash.com/photo-1558030006-450675393462?w=600&q=80',
+          image: 'https://images.unsplash.com/photo-1558030006-450675393462?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
           badge: 'Personalizado',
           includes: ['Temática 100% personalizada', 'Decoración acorde al tema', 'Menú exclusivo diseñado para ti'],
           ctaText: 'Solicitar Cotización',
@@ -215,26 +237,40 @@ export default {
       blogPosts: [
         {
           title: 'El secreto del Chimichurri perfecto',
-          excerpt: 'Un buen asado no está completo sin un gran chimichurri. Descubre nuestra receta secreta con hierbas frescas, especias y el toque justo de vinagre.',
-          image: 'https://images.unsplash.com/photo-1626202378943-4b57b42c4b4d?w=600&q=80',
+          excerpt: 'Un buen asado no está completo sin un gran chimichurri. Descubre nuestra receta secreta.',
+          content: '<p>El chimichurri es el alma de la parrilla argentina y chilena. Para lograr el equilibrio perfecto, mezcla:</p><ul><li>1 taza de perejil fresco picado</li><li>4 dientes de ajo picados fino</li><li>1 cucharada de orégano seco</li><li>1 cucharadita de ají molido (o merquén)</li><li>1/2 taza de aceite de oliva</li><li>1/4 taza de vinagre de vino tinto</li></ul><p><strong>El secreto:</strong> Deja reposar la mezcla al menos 24 horas antes de servir para que los sabores se integren.</p>',
+          image: 'https://images.unsplash.com/photo-1626202378943-4b57b42c4b4d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
           date: '10 Feb, 2026',
           tag: 'Recetas'
         },
         {
           title: 'Guía de Cortes: ¿Qué elegir?',
-          excerpt: 'Lomo vetado, entraña, punta de ganso... te explicamos las diferencias y cuál es el mejor corte para cada tipo de parrilla y ocasión.',
-          image: 'https://images.unsplash.com/photo-1603048297172-c92544798d5e?w=600&q=80',
+          excerpt: 'Lomo vetado, entraña, punta de ganso... te explicamos las diferencias.',
+          content: '<p>Elegir la carne correcta es el 50% del éxito del asado. Aquí nuestros favoritos:</p><ul><li><strong>Lomo Vetado:</strong> Jugoso y sabroso gracias a su grasa infiltrada. Ideal para término medio o tres cuartos.</li><li><strong>Entraña:</strong> Intenso sabor y cocción rápida (vuelta y vuelta). Se sirve jugosa.</li><li><strong>Punta de Ganso:</strong> La capa de grasa exterior le da un sabor único. Cocción lenta para que la grasa se derrita.</li></ul><p>En Asao_Parrillao seleccionamos personalmente cada corte.</p>',
+          image: 'https://images.unsplash.com/photo-1603048297172-c92544798d5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
           date: '05 Feb, 2026',
           tag: 'Tips'
         },
         {
           title: 'Técnicas para encender el fuego',
-          excerpt: '¿Leña o carbón? ¿Volcán o iniciador? Aprende las mejores técnicas para lograr brasas perfectas que duran todo el asado.',
-          image: 'https://images.unsplash.com/photo-1599351478235-9c864ac7a43f?w=600&q=80',
+          excerpt: '¿Leña o carbón? Aprende a dominar las brasas.',
+          content: '<p>Existen muchas formas, pero la "técnica del volcán" es infalible:</p><ol><li>Forma un anillo de carbón o leña.</li><li>Coloca papel de diario hecho bolas en el centro.</li><li>Rodea el papel con trozos pequeños de carbón.</li><li>Enciende el papel y espera a que el carbón prenda.</li></ol><p><strong>Tip Pro:</strong> Nunca uses acelerantes químicos, ya que alteran el sabor de la carne.</p>',
+          image: 'https://images.unsplash.com/photo-1599351478235-9c864ac7a43f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
           date: '28 Ene, 2026',
           tag: 'Tutorial'
         }
       ]
+    }
+  },
+  methods: {
+    openPost(post) {
+      this.activePost = post
+      this.showModal = true
+      document.body.style.overflow = 'hidden' // Prevent scrolling
+    },
+    closeModal() {
+      this.showModal = false
+      document.body.style.overflow = 'auto' // Restore scrolling
     }
   }
 }

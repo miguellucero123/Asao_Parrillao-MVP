@@ -10,9 +10,9 @@
       </div>
       <h4 class="blog-title">{{ title }}</h4>
       <p class="blog-excerpt">{{ excerpt }}</p>
-      <a href="#" class="read-more" @click.prevent>
+      <button class="read-more btn-link border-0 p-0 bg-transparent" @click="$emit('read-more')">
         Leer Tip <i class="bi bi-arrow-right"></i>
-      </a>
+      </button>
     </div>
   </div>
 </template>

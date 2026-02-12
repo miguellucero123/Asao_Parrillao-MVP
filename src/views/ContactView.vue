@@ -23,7 +23,8 @@
             <div class="contact-info-card h-100" id="contact-card-email">
               <i class="bi bi-envelope-fill d-block"></i>
               <h5>Correo Electrónico</h5>
-              <p><a href="mailto:miguellucerogatica@gmail.com">miguellucerogatica@gmail.com</a></p>
+              <a href="mailto:miguellucerogatica@gmail.com" class="d-block mb-1" style="color: var(--ap-dark-300);">miguellucerogatica@gmail.com</a>
+              <a href="mailto:fco.gonzhoff@gmail.com" class="d-block" style="color: var(--ap-dark-300);">fco.gonzhoff@gmail.com</a>
             </div>
           </div>
           <div class="col-md-4">

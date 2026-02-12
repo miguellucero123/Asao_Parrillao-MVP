@@ -54,6 +54,10 @@
             </a>
           </div>
           <div class="d-flex align-items-center gap-2 mb-2">
+            <i class="bi bi-envelope-fill" style="color: var(--ap-fire-400); visibility: hidden;"></i>
+            <a href="mailto:fco.gonzhoff@gmail.com" class="footer-link" style="padding: 0;">fco.gonzhoff@gmail.com</a>
+          </div>
+          <div class="d-flex align-items-center gap-2 mb-2">
             <i class="bi bi-phone-fill" style="color: var(--ap-fire-400);"></i>
             <a href="tel:+56999319162" class="footer-link" style="padding: 0;">
               +56 9 9931 9162
